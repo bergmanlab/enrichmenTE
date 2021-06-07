@@ -85,13 +85,8 @@ def main():
         copyfile(nonref_pred, nonref_output)
         num_nonref = get_lines(nonref_output)
 
-        # ref_output = os.path.join(args.out, prefix + ".ref.bed")
-        # copyfile(ref_pred, ref_output)
-        # num_ref = get_lines(ref_output)
-
         proc_time_all = time.time() - start_time
         logging.info("enrichmenTE DETECT finished in " + format_time(proc_time_all))
-        # logging.info("Number of reference TEs: " + str(num_ref))
         logging.info("Number of non-reference TEs: " + str(num_nonref))
 
 

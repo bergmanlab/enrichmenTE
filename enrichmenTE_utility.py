@@ -421,7 +421,7 @@ def get_nonref(bed1, bed2, outdir, family, tsd_max, gap_max):
                                 chromosome,
                                 str(start),
                                 str(end),
-                                family, # TODO: save dist
+                                family,  # TODO: save dist
                                 str(score),
                                 strand,
                             ]
