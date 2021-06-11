@@ -79,7 +79,7 @@ Please use the [Github Issue page](https://github.com/bergmanlab/enrichmenTE/iss
 To cite enrichmenTE in publications, please use https://www.biorxiv.org/content/10.1101/2021.04.24.441253v1
 
 # <a name="license"></a> License
-Copyright (c) 2020 Shunhua Han and Casey M. Bergman
+Copyright (c) 2021 Shunhua Han and Casey M. Bergman
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
