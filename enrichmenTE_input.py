@@ -90,10 +90,63 @@ def get_args():
         "-o", "--out", type=str, help="output dir (default = '.') ", required=False
     )
 
-    # parser_detect = subparsers.add_parser(
-    #     "cluster",
-    #     help="Detect TE insertions using TE-NGS data",
-    # )
+    # parameters for cluster module
+    parser_cluster = subparsers.add_parser(
+        "cluster",
+        help="Cluster samples based on TE profile",
+    )
+
+    parser_cluster.add_argument(
+        "--prefix",
+        type=str,
+        help="output prefix",
+        required=True,
+    )
+    parser_cluster.add_argument(
+        "--enrichmente_out_dirs",
+        type=str,
+        help="list of enrichmenTE output directories",
+        nargs="+",
+        required=True,
+    )
+    parser_cluster.add_argument(
+        "--filter_region",
+        type=str,
+        help="filter region in bed format, separated by comma",
+        required=True,
+    )
+    parser_cluster.add_argument("--outgroup", type=str, help="outgroup", required=False)
+    parser_cluster.add_argument(
+        "-o",
+        "--out",
+        type=str,
+        help="directory to output results)",
+        required=True,
+    )
+    parser_cluster.add_argument(
+        "--include_families",
+        type=str,
+        help="TE families to use in the phylogeny (separated by comma)",
+        required=False,
+    )
+    parser_cluster.add_argument(
+        "--exclude_families",
+        type=str,
+        help="TE families to exclude in the phylogeny (separated by comma)",
+        required=False,
+    )
+    parser_cluster.add_argument(
+        "--exclude_samples",
+        type=str,
+        help="sample to exclude in the phylogeny (separated by comma)",
+        required=False,
+    )
+    parser_cluster.add_argument(
+        "--thread",
+        type=int,
+        help="max cpu threads to use (default = '1')",
+        required=False,
+    )
 
     args = parser.parse_args()
 
@@ -103,17 +156,5 @@ def get_args():
     args.out = os.path.abspath(args.out)
     if not os.path.exists(args.out):
         os.mkdir(args.out)
-
-    if args.thread is None:
-        args.thread = 1
-
-    if args.window is None:
-        args.window = 100
-
-    if args.tsd_max is None:
-        args.tsd_max = 25
-
-    if args.gap_max is None:
-        args.gap_max = 25
 
     return args

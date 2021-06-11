@@ -117,7 +117,10 @@ def merge_bed(bed_in, bed_out, genome, filter_method="overlap"):
             if os.path.isfile(bed) and os.stat(bed).st_size != 0:
                 with open(bed, "r") as input:
                     for line in input:
-                        output.write(line)
+                        entry = line.replace("\n", "").split("\t")
+                        chrom = entry[0]
+                        if "chr" in chrom:
+                            output.write(line)
 
     if get_lines(bed_merge) != 0:
         # sort bed files
