@@ -1,82 +1,8 @@
 #!/usr/bin/env python3
-import sys
-import argparse
 import os
 import subprocess
 import glob
-import time
 import pandas as pd
-from multiprocessing import Process, Pool
-from Bio import Phylo
-
-# import dendropy
-
-
-# def get_args():
-#     parser = argparse.ArgumentParser(
-#         description="Script to generate clustering"
-#     )
-
-#     # required
-#     parser.add_argument(
-#         "--prefix",
-#         type=str,
-#         help="output prefix",
-#         required=True,
-#     )
-#     parser.add_argument(
-#         "--enrichmente_out_dirs",
-#         type=str,
-#         help="list of enrichmenTE output directories",
-#         nargs="+",
-#         required=True,
-#     )
-#     parser.add_argument(
-#         "--filter_region",
-#         type=str,
-#         help="filter region in bed format, separated by comma",
-#         required=True,
-#     )
-#     parser.add_argument("--outgroup", type=str, help="outgroup", required=False)
-#     parser.add_argument(
-#         "-o",
-#         "--out",
-#         type=str,
-#         help="directory to output results)",
-#         required=True,
-#     )
-#     parser.add_argument(
-#         "--include_families",
-#         type=str,
-#         help="TE families to use in the phylogeny (separated by comma)",
-#         required=False,
-#     )
-#     parser.add_argument(
-#         "--exclude_families",
-#         type=str,
-#         help="TE families to exclude in the phylogeny (separated by comma)",
-#         required=False,
-#     )
-#     parser.add_argument(
-#         "--exclude_samples",
-#         type=str,
-#         help="sample to exclude in the phylogeny (separated by comma)",
-#         required=False,
-#     )
-#     parser.add_argument(
-#         "--thread",
-#         type=int,
-#         help="max cpu threads to use (default = '1')",
-#         required=False,
-#     )
-
-#     args = parser.parse_args()
-
-#     # sets up default value for optional variable
-#     if thread is None:
-#         thread = 1
-
-#     return args
 
 
 def mkdir(dir):
@@ -303,7 +229,7 @@ def cluster(
     )
     # generate data matrix
     matrix = bed2matrix(bed_cluster, outgroup=outgroup)
-    
+
     # write matrix to csv file
     matrix_file = os.path.join(out, prefix + ".matrix.csv")
     matrix.to_csv(
