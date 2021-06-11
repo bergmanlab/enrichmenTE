@@ -164,7 +164,7 @@ def get_method_bed(
     prefix,
 ):
     output_prefix = prefix
-    pattern = "/*/*nonref.bed"
+    pattern = "/**/detect/*nonref.bed"
     bed_list = []
     for te_out_dir in te_out_dirs:
         bed_files = glob.glob(te_out_dir + pattern, recursive=True)

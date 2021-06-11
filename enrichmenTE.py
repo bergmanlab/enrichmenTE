@@ -79,12 +79,16 @@ def main():
         else:
             prefix = args.prefix
 
-        # create module output directory
-        out_dir = os.path.join(out_dir, "detect")
+        # create output directory
+        out_dir = os.path.join(out_dir, prefix)
         mkdir(out_dir)
 
+        # create module output directory
+        detect_out_dir = os.path.join(out_dir, "detect")
+        mkdir(detect_out_dir)
+
         # create directory for intermediate files
-        tmp_dir = os.path.join(out_dir, "detect_intermediate_files")
+        tmp_dir = os.path.join(detect_out_dir, "detect_intermediate_files")
         mkdir(tmp_dir)
 
         nonref_pred = detect(
@@ -102,7 +106,7 @@ def main():
             thread=args.thread,
         )
 
-        nonref_output = os.path.join(out_dir, prefix + ".nonref.bed")
+        nonref_output = os.path.join(detect_out_dir, prefix + ".nonref.bed")
         copyfile(nonref_pred, nonref_output)
         num_nonref = get_lines(nonref_output)
 
@@ -118,16 +122,20 @@ def main():
         else:
             prefix = args.prefix
 
-        # create module output directory
-        out_dir = os.path.join(out_dir, "cluster")
+        # create output directory
+        out_dir = os.path.join(out_dir, prefix)
         mkdir(out_dir)
+
+        # create module output directory
+        cluster_out_dir = os.path.join(out_dir, "cluster")
+        mkdir(cluster_out_dir)
 
         tree_file, pdf_file = cluster(
             prefix=prefix,
             enrichmente_out_dirs=args.enrichmente_out_dirs,
             filter_region=args.filter_region,
             outgroup=args.outgroup,
-            out=out_dir,
+            out=cluster_out_dir,
             include_families=args.include_families,
             exclude_families=args.exclude_families,
             exclude_samples=args.exclude_samples,

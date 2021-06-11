@@ -19,7 +19,7 @@ norm_region="/home/sh60271/git/DGRC/data/annotation/recomb_border_r6.bed"
 curated_annotation="/home/sh60271/git/DGRC/data/annotation/dm6_te.gff"
 mask_aug_ref="/work/cmblab/shunhua/dm6_masked_augmented/dm6.cov.fasta.masked.aug"
 run_dir="/scratch/sh60271/enrichmenTE/test_0611"
-depth_config=$enrichmenTE_dir/utility/cutoff.config
+depth_config=$enrichmenTE_dir/cutoff.config
 
 # set up directory for the job
 mkdir -p $run_dir
@@ -65,26 +65,3 @@ for file in $(ls -d -1 /work/cmblab/shunhua/dgrc/*_R1_001.fastq.gz); do
 	log_output=$out_dir/$sample_name.log
 	sbatch --job-name=${prefix} --export=enrichmenTE_dir="${enrichmenTE_dir}",read1="${fq1}",read2="${fq2}",out_dir="${out_dir}",filter_region="${norm_region}",ref_masked_aug="${ref_masked_aug}",curated_annotation="${curated_annotation}",depth_config="${depth_config}",prefix="${sample_name}" --output="${log_output}" --error="${log_output}" jobscript.sh
 done
-
-# # ######## cluster ########
-# tree_dir=$out_dir/tree2
-# mkdir -p $tree_dir
-# # python3 $enrichmenTE_dir/enrichmenTE_cluster.py --prefix "test_cluster" --enrichmente_out_dirs $out_dir --filter_region $norm_region --outgroup "ISO1" --out $tree_dir --thread $SLURM_NTASKS --exclude_families "mdg3"
-# python3 $enrichmenTE_dir/enrichmenTE.py cluster --prefix "cluster" --enrichmente_out_dirs $out_dir --filter_region $norm_region --out $out_dir --thread $SLURM_NTASKS --exclude_families "mdg3"
-
-# source activate te_ngs
-
-# utility_dir="/home/sh60271/git/DGRC/src/utility"
-# run_dir="/scratch/sh60271/primer/read_0514_batch4"
-
-# # merge and cluster the bed files
-# bed_dir="/scratch/sh60271/primer/read_0514_batch4/out"
-# out_dir=$run_dir/out/merge_cluster
-# mkdir -p $out_dir
-# python3 $utility_dir/merge_cluster.py -d $bed_dir -o $out_dir
-
-# bed="/scratch/sh60271/enrichmenTE/test_0607/out/tree/test_cluster.cluster.bed"
-# # produce neighbor joining tree
-# png=$out_dir/merge.cluster.png
-# tree=$out_dir/merge.cluster.nw
-# Rscript --vanilla $enrichmenTE_dir/nj.R $bed $png $tree
