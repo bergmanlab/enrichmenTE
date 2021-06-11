@@ -6,12 +6,13 @@ import os
 
 def get_args():
     parser = argparse.ArgumentParser(
-        description="""Script to detect reference and non-reference TEs from TE-NGS data
+        description="""
+        Software to detect non-reference TEs from TE-NGS data
     
-    enrichmenTE consists of two major steps:
-    - DETECT detects TE insertions
-    - CLUSTER add given non-reference TE profiles from samples to a fixed phylogeny
-    """
+        enrichmenTE consists of two major steps:
+        - DETECT detects non-reference insertions for five TE families: 1731,297,copia,mdg1,roo 
+        - CLUSTER cluster samples based on TE profiles of five TE families
+        """
     )
     subparsers = parser.add_subparsers(help="modes", dest="sub")
 
