@@ -76,7 +76,9 @@ optional arguments:
 Please use the [Github Issue page](https://github.com/bergmanlab/enrichmenTE/issues) if you have questions.
 
 # <a name="citation"></a> Citation
-To cite enrichmenTE in publications, please use https://www.biorxiv.org/content/10.1101/2021.04.24.441253v1
+To cite enrichmenTE in publications, please use the following as reference.
+
+Daniel Mariyappa, Douglas B Rusch, Shunhua Han, Arthur Luhur, Danielle Overton, David F B Miller, Casey M Bergman, Andrew C Zelhof, A novel transposable element based authentication protocol for Drosophila cell lines, G3 Genes|Genomes|Genetics, 2021;, jkab403, https://doi.org/10.1093/g3journal/jkab403
 
 # <a name="license"></a> License
 Copyright (c) 2021 Shunhua Han and Casey M. Bergman
