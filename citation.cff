@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Han"
+    given-names: "Shunhua"
+    orcid: "https://orcid.org/0000-0002-8605-7547"  
+  - family-names: "Bergman"
+    given-names: "Casey M."
+    orcid: "https://orcid.org/0000-0002-5462-9854"  
+title: "enrichmenTE: software for the analysis of LTR retrotransposon insertions in PCR-enriched NGS samples"
+version: 2
+date-released: 2020-12-01
+url: "https://github.com/bergmanlab/enrichmente"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Mariyappa"
+    given-names: "Daniel"
+    orcid: "https://orcid.org/0000-0003-4775-1656"  
+  - family-names: "Rusch"
+    given-names: "Douglas B."
+    orcid: "https://orcid.org/0000-0002-1066-2687"      
+  - family-names: "Han"
+    given-names: "Shunhua"
+    orcid: "https://orcid.org/0000-0002-8605-7547"
+  - family-names: "Luhur"
+    given-names: "Arthur"
+    orcid: "https://orcid.org/0000-0001-5249-6587"
+  - family-names: "Overton"
+    given-names: "Danielle"
+    orcid: "https://orcid.org/0000-0002-5836-1058"     
+  - family-names: "Miller"
+    given-names: "David F.B."
+  - family-names: "Bergman"
+    given-names: "Casey M."
+    orcid: "https://orcid.org/0000-0002-5462-9854"   
+  - family-names: "Zelhof"
+    given-names: "Andrew C."
+    orcid: "https://orcid.org/0000-0001-7085-822X"                      
+  doi: "10.1093/g3journal/jkab403" 
+  journal: "G3"
+  volume: 12
+  issue: 2
+  start: jkab403
+  month: 2
+  title: "A novel transposable element-based authentication protocol for Drosophila cell lines "
+  year: 2022
